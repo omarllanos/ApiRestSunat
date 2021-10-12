@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiRestSunat", "ApiRestSuna
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRestSunat.EntityFramework", "ApiRestSunat.EntityFramework\ApiRestSunat.EntityFramework.csproj", "{35C75D2C-C6DA-47F9-B3B7-4CB0F7010A73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiRestSunat.Domain", "ApiRestSunat.Domain\ApiRestSunat.Domain.csproj", "{E8F742F7-E5AB-477A-99E4-069A1EFFB58C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{35C75D2C-C6DA-47F9-B3B7-4CB0F7010A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35C75D2C-C6DA-47F9-B3B7-4CB0F7010A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35C75D2C-C6DA-47F9-B3B7-4CB0F7010A73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F742F7-E5AB-477A-99E4-069A1EFFB58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F742F7-E5AB-477A-99E4-069A1EFFB58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F742F7-E5AB-477A-99E4-069A1EFFB58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F742F7-E5AB-477A-99E4-069A1EFFB58C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

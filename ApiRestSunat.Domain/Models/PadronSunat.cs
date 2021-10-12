@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApiRestSunat.Models
+namespace ApiRestSunat.Domain.Models
 {
-    public class PadronSunat
+    public class PadronSunat : DomainObject
     {
         public string Ruc { get; set; }
         public string RazonSocial { get; set; }
