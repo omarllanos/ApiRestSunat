@@ -13,7 +13,9 @@ namespace ApiRestSunat.EntityFramework
         public ApiRestDbContext CreateDbContext(string[] args = null)
         {
             var options = new DbContextOptionsBuilder<ApiRestDbContext>();
-            options.UseSqlServer("data source = (local); initial catalog = PatronSunat; user id = sa; password = Server123*");
+            
+            options.UseNpgsql("Host = localhost; Port = 5432; Database = PatronSunatDB; Username = admin; Password = admin1234");
+            //options.UseSqlServer("data source = (local); initial catalog = PatronSunat; user id = sa; password = Server123*");
             return new ApiRestDbContext(options.Options);
 
         }

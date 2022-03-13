@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ApiRestSunat.Domain.Models
 {
-    [Table("padron_sunat_20")]
-    public class padron_sunat_20 : PadronSunat
+    [Table("Padron_sunat_20")]
+    public class Padron_sunat_20 : PadronSunat
     {
     }
 }

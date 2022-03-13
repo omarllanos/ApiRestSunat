@@ -14,14 +14,14 @@ namespace ApiRestSunat.EntityFramework.Services
     public class Padron10DataService : IPadron10Service
     {
         private readonly ApiRestDbContextFactory _contextFactory;
-        private readonly NoQueryDataService<padron_sunat_10> _nonQueryDataService;
+        private readonly NoQueryDataService<Padron_sunat_10> _nonQueryDataService;
         public Padron10DataService(ApiRestDbContextFactory contextFactory)
         {
             _contextFactory = contextFactory;
-            _nonQueryDataService = new NoQueryDataService<padron_sunat_10>(contextFactory);
+            _nonQueryDataService = new NoQueryDataService<Padron_sunat_10>(contextFactory);
         }
 
-        public Task<padron_sunat_10> Create(padron_sunat_10 entity)
+        public Task<Padron_sunat_10> Create(Padron_sunat_10 entity)
         {
             throw new NotImplementedException();
         }
@@ -31,24 +31,24 @@ namespace ApiRestSunat.EntityFramework.Services
             throw new NotImplementedException();
         }
 
-        public Task<padron_sunat_10> Get(int id)
+        public Task<Padron_sunat_10> Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<padron_sunat_10>> GetAll()
+        public Task<IEnumerable<Padron_sunat_10>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public async Task<padron_sunat_10> GetPadron10(string ruc)
+        public async Task<Padron_sunat_10> GetPadron10(string ruc)
         {
             using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            padron_sunat_10 entity = await context.Set<padron_sunat_10>().FirstOrDefaultAsync((e) => e.Ruc == ruc);
+            Padron_sunat_10 entity = await context.Set<Padron_sunat_10>().FirstOrDefaultAsync((e) => e.Ruc == ruc);
             return entity;
         }
 
-        public Task<padron_sunat_10> Update(int id, padron_sunat_10 entity)
+        public Task<Padron_sunat_10> Update(int id, Padron_sunat_10 entity)
         {
             throw new NotImplementedException();
         }

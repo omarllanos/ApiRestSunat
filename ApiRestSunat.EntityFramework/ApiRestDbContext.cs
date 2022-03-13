@@ -14,8 +14,8 @@ namespace ApiRestSunat.EntityFramework
         public ApiRestDbContext(DbContextOptions options):base(options) 
         {
         }
-        public virtual DbSet<padron_sunat_10> padron_sunat_10 { get; set; }
-        public virtual DbSet<padron_sunat_20> padron_sunat_20 { get; set; }
+        public virtual DbSet<Padron_sunat_10> Padron_sunat_10 { get; set; }
+        public virtual DbSet<Padron_sunat_20> Padron_sunat_20 { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

@@ -17,16 +17,16 @@ namespace ApiRestSunat.Controllers
         {
             _padron10Service = padron10Service;
         }
-        [HttpGet("{id}")]
+        //[HttpGet("{id}")]
         //public string Get(string ruc)
         //{
         //    return "hola";
         //}
-        public async Task<ActionResult<string>> Get(string id)
-        {
-            return "hola mundo";
-            //var recuperar = await _padron10Service.GetPadron10(id);
-            //return recuperar.Ruc;
-        }
+        //public Task<ActionResult<string>> Get(string id)
+        //{
+        //    //return Ok;
+        //    //var recuperar = await _padron10Service.GetPadron10(id);
+        //    //return recuperar.Ruc;
+        //}
     }
 }

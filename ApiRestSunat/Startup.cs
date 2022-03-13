@@ -30,6 +30,7 @@ namespace ApiRestSunat
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ApiRestDbContextFactory>();
+
             services.AddSingleton<IPadron10Service, Padron10DataService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>

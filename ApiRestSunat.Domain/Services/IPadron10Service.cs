@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ApiRestSunat.Domain.Services
 {
-    public interface IPadron10Service : IDataService<padron_sunat_10>
+    public interface IPadron10Service : IDataService<Padron_sunat_10>
     {
-        Task<padron_sunat_10> GetPadron10(string ruc);
+        Task<Padron_sunat_10> GetPadron10(string ruc);
     }
 }
