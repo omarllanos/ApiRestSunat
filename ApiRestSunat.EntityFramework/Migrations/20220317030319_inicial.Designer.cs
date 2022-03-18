@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ApiRestSunat.EntityFramework.Migrations
 {
     [DbContext(typeof(ApiRestDbContext))]
-    [Migration("20220313013847_initial")]
-    partial class initial
+    [Migration("20220317030319_inicial")]
+    partial class inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,49 +32,49 @@ namespace ApiRestSunat.EntityFramework.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CodigoDeZona")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(10)");
 
                     b.Property<string>("Condicion")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.Property<string>("Departamento")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Estado")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.Property<string>("Interior")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Kilometro")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Lote")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Manzana")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("NombreDeVia")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(60)");
 
                     b.Property<string>("Numero")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("RazonSocial")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(200)");
 
                     b.Property<string>("Ruc")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(15)");
 
                     b.Property<string>("TipoDeVia")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("TipoDeZona")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.Property<string>("Ubigeo")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(10)");
 
                     b.HasKey("Id");
 
@@ -90,49 +90,49 @@ namespace ApiRestSunat.EntityFramework.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CodigoDeZona")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(10)");
 
                     b.Property<string>("Condicion")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.Property<string>("Departamento")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Estado")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.Property<string>("Interior")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Kilometro")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Lote")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("Manzana")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("NombreDeVia")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(60)");
 
                     b.Property<string>("Numero")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("RazonSocial")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(200)");
 
                     b.Property<string>("Ruc")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(15)");
 
                     b.Property<string>("TipoDeVia")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(20)");
 
                     b.Property<string>("TipoDeZona")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.Property<string>("Ubigeo")
-                        .HasColumnType("text");
+                        .HasColumnType("VARCHAR(10)");
 
                     b.HasKey("Id");
 

@@ -6,13 +6,16 @@ services:
     image: postgres:14.2-alpine
     environment:
         - POSTGRES_USER=admin
-        - POSTGRES_PASSWORD=admin1234
-        - POSTGRES_DB=PatronSunatDB
+        - POSTGRES_PASSWORD=Server123*
+        #- POSTGRES_INITDB_ARGS=--encoding=UTF-8 // no esta los idiomas en alpine y solo tiene UTF8
+        - LC_COLLATE=es_ES.UTF-8
+        - LC_CTYPE=es_ES.UTF-8
+        - POSTGRES_DB=PadronDB
     ports:
       - "5432:5432"
     restart: always
     volumes:
-      - ../database-data:/var/lib/postgresql/data
+      - postgresql-data:/var/lib/postgresql/data
     
   pgadmin:
     image: dpage/pgadmin4
@@ -23,9 +26,8 @@ services:
       - "5050:80"
     restart: always
     volumes:
-      - pgadmin:/root/.pgadmin
- 
+      - pgadmin:/var/lib/pgadmin
 volumes:
-  database-data:
   pgadmin:
+  postgresql-data:
       

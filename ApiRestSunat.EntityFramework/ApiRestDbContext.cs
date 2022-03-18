@@ -16,6 +16,7 @@ namespace ApiRestSunat.EntityFramework
         }
         public virtual DbSet<Padron_sunat_10> Padron_sunat_10 { get; set; }
         public virtual DbSet<Padron_sunat_20> Padron_sunat_20 { get; set; }
+        public virtual DbSet<Ubigeo> Ubigeo { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
