@@ -67,8 +67,7 @@ namespace ApiRestSunat.EntityFramework.Services
                                  UDistrito = ct.Distrito
                              }).FirstOrDefaultAsync();
 
-            return queryable;
-            
+            return queryable;           
         }
 
         public Task<Padron_sunat_20> Update(int id, Padron_sunat_20 entity)
