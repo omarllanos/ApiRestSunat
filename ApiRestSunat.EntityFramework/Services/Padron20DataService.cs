@@ -1,4 +1,5 @@
-﻿using ApiRestSunat.Domain.Models;
+﻿using ApiRestSunat.Domain.DTOs;
+using ApiRestSunat.Domain.Models;
 using ApiRestSunat.Domain.Services;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -38,11 +39,36 @@ namespace ApiRestSunat.EntityFramework.Services
             throw new NotImplementedException();
         }
 
-        public async Task<Padron_sunat_20> GetPadron20(string ruc)
+        public async Task<PadronSelectDTO> GetPadron20(string ruc)
         {
             using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            Padron_sunat_20 entity = await context.Set<Padron_sunat_20>().FirstOrDefaultAsync((e) => e.Ruc == ruc);
-            return entity;
+            var queryable = await (from r in context.Padron_sunat_20
+                             join ct in context.Ubigeo on r.Ubigeo equals ct.Ubigeo_inei
+                             where r.Ruc == ruc
+                             select new PadronSelectDTO()
+                             {
+                                 Ruc = r.Ruc,
+                                 RazonSocial = r.RazonSocial,
+                                 Estado = r.Estado,
+                                 Condicion = r.Condicion,
+                                 Ubigeo = r.Ubigeo,
+                                 TipoDeVia = r.TipoDeVia,
+                                 NombreDeVia = r.NombreDeVia,
+                                 CodigoDeZona = r.CodigoDeZona,
+                                 TipoDeZona = r.TipoDeZona,
+                                 Numero = r.Numero,
+                                 Interior = r.Interior,
+                                 Lote = r.Lote,
+                                 Departamento = r.Departamento,
+                                 Manzana = r.Manzana,
+                                 Kilometro = r.Kilometro,                             
+                                 UDepartamento = ct.Departamento,
+                                 UProvincia = ct.Provincia,
+                                 UDistrito = ct.Distrito
+                             }).FirstOrDefaultAsync();
+
+            return queryable;
+            
         }
 
         public Task<Padron_sunat_20> Update(int id, Padron_sunat_20 entity)

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ApiRestSunat.Domain.DTOs
 {
-    public class PadronSunatDTO : PadronSunat
+    public class PadronSelectDTO : PadronSunat
     {
-        //public PadronSunat Padron { get; set; }
-        public string Direccion { get; set; }
-        public string DireccionLarga { get; set; }
+        public string UDepartamento { get; set; }
+        public string UProvincia { get; set; }
+        public string UDistrito { get; set; }
     }
 }

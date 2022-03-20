@@ -1,4 +1,5 @@
 using ApiRestSunat.Domain.Services;
+using ApiRestSunat.Domain.Services.PadronRuc;
 using ApiRestSunat.EntityFramework;
 using ApiRestSunat.EntityFramework.Services;
 using Microsoft.AspNetCore.Builder;
@@ -33,6 +34,8 @@ namespace ApiRestSunat
 
             services.AddSingleton<IPadron10Service, Padron10DataService>();
             services.AddSingleton<IPadron20Service, Padron20DataService>();
+            services.AddSingleton<IPadronLogicaService, PadronLogicaService>();
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

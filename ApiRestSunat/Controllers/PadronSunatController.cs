@@ -1,5 +1,7 @@
-﻿using ApiRestSunat.Domain.Models;
+﻿using ApiRestSunat.Domain.DTOs;
+using ApiRestSunat.Domain.Models;
 using ApiRestSunat.Domain.Services;
+using ApiRestSunat.Domain.Services.PadronRuc;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,38 +14,24 @@ namespace ApiRestSunat.Controllers
     [Route("api/[controller]")]
     public class PadronSunatController : ControllerBase
     {
-        private readonly IPadron10Service _padron10Service;
-        private readonly IPadron20Service _padron20Service;
-        public PadronSunatController(IPadron10Service padron10Service, IPadron20Service padron20Service)
+       
+        private readonly IPadronLogicaService _padronlogicaService;
+        public PadronSunatController(IPadronLogicaService padronlogicaService)
         {
-            _padron10Service = padron10Service;
-            _padron20Service = padron20Service;
+            _padronlogicaService = padronlogicaService;
         }
         [HttpGet("{ruc}")]    
-        public async Task<ActionResult<PadronSunat>> GetPadronSunat(string ruc)
+        public async Task<ActionResult<PadronSunatDTO>> GetPadronSunat(string ruc)
         {
-            var Padron = new PadronSunat();
-
-            var sunat10 = await _padron10Service.GetPadron10(ruc);
-            if (sunat10 == null)
+            var padron = await _padronlogicaService.GetPadronRuc(ruc);
+            if (padron != null)
             {
-                var sunat20 = await _padron20Service.GetPadron20(ruc);
-                if (sunat20 == null)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    Padron = sunat20;
-                    return Ok(Padron);
-                }
+                return Ok(padron);
             }
             else
             {
-                Padron = sunat10;
-                return Ok(Padron);
+                return NotFound();
             }
-
         }
     }
 }

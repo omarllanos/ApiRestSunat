@@ -1,4 +1,5 @@
-﻿using ApiRestSunat.Domain.Models;
+﻿using ApiRestSunat.Domain.DTOs;
+using ApiRestSunat.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace ApiRestSunat.Domain.Services
 {
     public interface IPadron20Service : IDataService<Padron_sunat_20>
     {
-        Task<Padron_sunat_20> GetPadron20(string ruc);
+        Task<PadronSelectDTO> GetPadron20(string ruc);
     }
 }
