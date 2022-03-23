@@ -17,6 +17,38 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
             _padron10Service = padron10Service;
         }
 
+        public async Task<PadronSunatDniDTO> GetPadronDni(string ruc)
+        {
+            var RazonSocial = await _padron10Service.GetPadronDni(ruc);
+            string[] subs = RazonSocial.Split();
+
+            string nombres = "";
+            if (subs.Length == 3)
+            {
+                nombres = subs[subs.Length - 1];
+            }
+            if (subs.Length == 4)
+            {
+                nombres = subs[subs.Length - 2] +" "+ subs[subs.Length - 1];
+            }
+            if (subs.Length == 5)
+            {
+                nombres = subs[subs.Length - 3] + " " + subs[subs.Length - 2] + " " + subs[subs.Length - 1];
+            }
+            string apepaterno = subs[0];
+            string apematerno = subs[1];
+            //var DniValue = ruc.Substring(2, 10);
+            PadronSunatDniDTO padronSunatDniDTO = new()
+            {
+                Dni = ruc,
+                Nombres = nombres,
+                ApellidoPaterno = apepaterno,
+                ApellidoMaterno = apematerno
+
+            };
+            return padronSunatDniDTO;
+        }
+
         public async Task<PadronSunatDTO> GetPadronRuc(string ruc)
         {
             switch (ruc.Substring(0,2))

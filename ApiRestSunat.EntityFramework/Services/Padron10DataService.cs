@@ -1,4 +1,5 @@
-﻿using ApiRestSunat.Domain.Models;
+﻿using ApiRestSunat.Domain.DTOs;
+using ApiRestSunat.Domain.Models;
 using ApiRestSunat.Domain.Services;
 using ApiRestSunat.EntityFramework.Common;
 
@@ -46,6 +47,14 @@ namespace ApiRestSunat.EntityFramework.Services
             using ApiRestDbContext context = _contextFactory.CreateDbContext();
             Padron_sunat_10 entity = await context.Set<Padron_sunat_10>().FirstOrDefaultAsync((e) => e.Ruc == ruc);
             return entity;
+        }
+
+        public async Task<string> GetPadronDni(string Dni)
+        {
+            using ApiRestDbContext context = _contextFactory.CreateDbContext();
+            var entity = await context.Set<Padron_sunat_10>().Select(x => new { x.Ruc, x.RazonSocial }).FirstOrDefaultAsync((e) => e.Ruc.Contains(Dni));
+            var value = entity.RazonSocial;
+            return value;
         }
 
         public Task<Padron_sunat_10> Update(int id, Padron_sunat_10 entity)

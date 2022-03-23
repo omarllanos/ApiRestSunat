@@ -20,10 +20,23 @@ namespace ApiRestSunat.Controllers
         {
             _padronlogicaService = padronlogicaService;
         }
-        [HttpGet("{ruc}")]    
+        [HttpGet("empresa/{ruc}")]
         public async Task<ActionResult<PadronSunatDTO>> GetPadronSunat(string ruc)
         {
             var padron = await _padronlogicaService.GetPadronRuc(ruc);
+            if (padron != null)
+            {
+                return Ok(padron);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+        [HttpGet("persona/{dni}")]
+        public async Task<ActionResult<PadronSunatDniDTO>> GetPadronDni(string dni)
+        {
+            var padron = await _padronlogicaService.GetPadronDni(dni);
             if (padron != null)
             {
                 return Ok(padron);

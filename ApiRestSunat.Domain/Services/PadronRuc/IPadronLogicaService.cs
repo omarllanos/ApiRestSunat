@@ -10,5 +10,6 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
     public interface IPadronLogicaService
     {
         Task<PadronSunatDTO> GetPadronRuc(string ruc);
+        Task<PadronSunatDniDTO> GetPadronDni(string ruc);
     }
 }
