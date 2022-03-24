@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace ApiRestSunat.Domain.Models
 {
     public class PadronSunat : DomainObject
     {
-        [Column(TypeName = "VARCHAR(15)")]
+        [StringLength(maximumLength: 11)]
+        [Column(TypeName = "VARCHAR(11)")]
         public string Ruc { get; set; }
         [Column(TypeName = "VARCHAR(200)")]
         public string RazonSocial { get; set; }

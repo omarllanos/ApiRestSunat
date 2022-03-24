@@ -26,7 +26,7 @@ namespace ApiRestSunat.Controllers
             var padron = await _padronlogicaService.GetPadronRuc(ruc);
             if (padron != null)
             {
-                return Ok(padron);
+                return padron;
             }
             else
             {
@@ -39,7 +39,7 @@ namespace ApiRestSunat.Controllers
             var padron = await _padronlogicaService.GetPadronDni(dni);
             if (padron != null)
             {
-                return Ok(padron);
+                return padron;
             }
             else
             {

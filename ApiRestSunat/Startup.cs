@@ -42,7 +42,7 @@ namespace ApiRestSunat
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiRestSunat", Version = "v1" });
             });
             
-            services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(Startup));
            
         }
 

@@ -7,8 +7,23 @@ using System.Threading.Tasks;
 
 namespace ApiRestSunat.Domain.DTOs
 {
-    public class PadronSelectDTO : PadronSunat
+    public class PadronSelectDTO
     {
+        public string Ruc { get; set; }
+        public string RazonSocial { get; set; }
+        public string Estado { get; set; }
+        public string Condicion { get; set; }
+        public string Ubigeo { get; set; }
+        public string TipoDeVia { get; set; }
+        public string NombreDeVia { get; set; }
+        public string CodigoDeZona { get; set; }
+        public string TipoDeZona { get; set; }
+        public string Numero { get; set; }
+        public string Interior { get; set; }
+        public string Lote { get; set; }
+        public string Departamento { get; set; }
+        public string Manzana { get; set; }
+        public string Kilometro { get; set; }
         public string UDepartamento { get; set; }
         public string UProvincia { get; set; }
         public string UDistrito { get; set; }
