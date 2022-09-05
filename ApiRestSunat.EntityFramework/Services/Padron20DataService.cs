@@ -65,7 +65,7 @@ namespace ApiRestSunat.EntityFramework.Services
                                  UDepartamento = ct.Departamento,
                                  UProvincia = ct.Provincia,
                                  UDistrito = ct.Distrito
-                             }).FirstOrDefaultAsync();
+                             }).AsNoTracking().FirstOrDefaultAsync();
 
             return queryable;           
         }
