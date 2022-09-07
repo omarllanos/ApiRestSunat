@@ -45,6 +45,14 @@ namespace ApiRestSunat.Controllers
             {
                 return NotFound();
             }
+            //if (padron.Equals(""))
+            //{
+            //   return NotFound();
+            //}
+            //else
+            //{ 
+            //   return padron; 
+            //}
         }
     }
 }

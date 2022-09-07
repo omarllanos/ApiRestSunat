@@ -52,9 +52,15 @@ namespace ApiRestSunat.EntityFramework.Services
         public async Task<string> GetPadronDni(string Dni)
         {
             using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            var entity = await context.Set<Padron_sunat_10>().Select(x => new { x.Ruc, x.RazonSocial }).AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc.Contains(Dni));
-            var value = entity.RazonSocial;
-            return value;
+            var entity = await context.Set<Padron_sunat_dni>().Where(x => x.Dni.Equals(Dni)).Select(x => new { x.Dni, x.Nombres }).AsNoTracking().FirstOrDefaultAsync();
+            if (entity != null)
+            {
+                return entity.Nombres;
+            }
+            else
+            {
+                return "";
+            }   
         }
 
         public Task<Padron_sunat_10> Update(int id, Padron_sunat_10 entity)

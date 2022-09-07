@@ -20,6 +20,10 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
         public async Task<PadronSunatDniDTO> GetPadronDni(string ruc)
         {
             var RazonSocial = await _padron10Service.GetPadronDni(ruc);
+            if (RazonSocial.Equals(""))
+            {
+                return null;
+            }
             string[] subs = RazonSocial.Split();
 
             string nombres = "";
@@ -61,19 +65,19 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
                         {
                             Ruc = sunat10.Ruc,
                             RazonSocial = sunat10.RazonSocial,
-                            Estado = sunat10.Estado,
-                            Condicion = sunat10.Condicion,
-                            Ubigeo = sunat10.Ubigeo,
-                            TipoDeVia = sunat10.TipoDeVia,
-                            NombreDeVia = sunat10.NombreDeVia,
-                            CodigoDeZona = sunat10.CodigoDeZona,
-                            TipoDeZona = sunat10.TipoDeZona,
-                            Numero = sunat10.Numero,
-                            Interior = sunat10.Interior,
-                            Lote = sunat10.Lote,
-                            Departamento = sunat10.Departamento,
-                            Manzana = sunat10.Manzana,
-                            Kilometro = sunat10.Kilometro
+                            //Estado = sunat10.Estado,
+                            //Condicion = sunat10.Condicion,
+                            //Ubigeo = sunat10.Ubigeo,
+                            //TipoDeVia = sunat10.TipoDeVia,
+                            //NombreDeVia = sunat10.NombreDeVia,
+                            //CodigoDeZona = sunat10.CodigoDeZona,
+                            //TipoDeZona = sunat10.TipoDeZona,
+                            //Numero = sunat10.Numero,
+                            //Interior = sunat10.Interior,
+                            //Lote = sunat10.Lote,
+                            //Departamento = sunat10.Departamento,
+                            //Manzana = sunat10.Manzana,
+                            //Kilometro = sunat10.Kilometro
                         };
                         return padronsunat;
                     }
