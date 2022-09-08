@@ -49,6 +49,20 @@ namespace ApiRestSunat.EntityFramework.Services
             return entity;
         }
 
+        public async Task<Padron_sunat_15> GetPadron15(string ruc)
+        {
+            using ApiRestDbContext context = _contextFactory.CreateDbContext();
+            Padron_sunat_15 entity = await context.Set<Padron_sunat_15>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
+            return entity;
+        }
+
+        public async Task<Padron_sunat_17> GetPadron17(string ruc)
+        {
+            using ApiRestDbContext context = _contextFactory.CreateDbContext();
+            Padron_sunat_17 entity = await context.Set<Padron_sunat_17>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
+            return entity;
+        }
+
         public async Task<string> GetPadronDni(string Dni)
         {
             using ApiRestDbContext context = _contextFactory.CreateDbContext();

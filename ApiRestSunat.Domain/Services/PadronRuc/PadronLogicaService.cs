@@ -53,6 +53,72 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
             return padronSunatDniDTO;
         }
 
+        public async Task<PadronSunatReducidoDTO> GetPadronNaturalRuc(string ruc)
+        {
+            switch (ruc.Substring(0, 2))
+            {
+                case "10":
+                    var sunat10 = await _padron10Service.GetPadron10(ruc);
+                    if (sunat10 != null)
+                    {
+                        var padronsunat = new PadronSunatReducidoDTO
+                        {
+                            Ruc = sunat10.Ruc,
+                            RazonSocial = sunat10.RazonSocial,
+                            Estado = sunat10.Estado,
+                            Condicion = sunat10.Condicion
+
+                        };
+                        return padronsunat;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                case "15":
+                    var sunat15 = await _padron10Service.GetPadron10(ruc);
+                    if (sunat15 != null)
+                    {
+                        var padronsunat = new PadronSunatReducidoDTO
+                        {
+                            Ruc = sunat15.Ruc,
+                            RazonSocial = sunat15.RazonSocial,
+                            Estado = sunat15.Estado,
+                            Condicion = sunat15.Condicion
+
+                        };
+                        return padronsunat;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                case "17":
+                    var sunat17 = await _padron10Service.GetPadron10(ruc);
+                    if (sunat17 != null)
+                    {
+                        var padronsunat = new PadronSunatReducidoDTO
+                        {
+                            Ruc = sunat17.Ruc,
+                            RazonSocial = sunat17.RazonSocial,
+                            Estado = sunat17.Estado,
+                            Condicion = sunat17.Condicion
+
+                        };
+                        return padronsunat;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                default:
+                    return null;
+
+            }
+        }
+
         public async Task<PadronSunatDTO> GetPadronRuc(string ruc)
         {
             switch (ruc.Substring(0,2))
@@ -65,19 +131,9 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
                         {
                             Ruc = sunat10.Ruc,
                             RazonSocial = sunat10.RazonSocial,
-                            //Estado = sunat10.Estado,
-                            //Condicion = sunat10.Condicion,
-                            //Ubigeo = sunat10.Ubigeo,
-                            //TipoDeVia = sunat10.TipoDeVia,
-                            //NombreDeVia = sunat10.NombreDeVia,
-                            //CodigoDeZona = sunat10.CodigoDeZona,
-                            //TipoDeZona = sunat10.TipoDeZona,
-                            //Numero = sunat10.Numero,
-                            //Interior = sunat10.Interior,
-                            //Lote = sunat10.Lote,
-                            //Departamento = sunat10.Departamento,
-                            //Manzana = sunat10.Manzana,
-                            //Kilometro = sunat10.Kilometro
+                            Estado = sunat10.Estado,
+                            Condicion = sunat10.Condicion
+
                         };
                         return padronsunat;
                     }
@@ -86,6 +142,42 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
                         return null;
                     }
 
+                case "15":
+                    var sunat15 = await _padron10Service.GetPadron15(ruc);
+                    if (sunat15 != null)
+                    {
+                        var padronsunat = new PadronSunatDTO
+                        {
+                            Ruc = sunat15.Ruc,
+                            RazonSocial = sunat15.RazonSocial,
+                            Estado = sunat15.Estado,
+                            Condicion = sunat15.Condicion
+
+                        };
+                        return padronsunat;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                case "17":
+                    var sunat17 = await _padron10Service.GetPadron17(ruc);
+                    if (sunat17 != null)
+                    {
+                        var padronsunat = new PadronSunatDTO
+                        {
+                            Ruc = sunat17.Ruc,
+                            RazonSocial = sunat17.RazonSocial,
+                            Estado = sunat17.Estado,
+                            Condicion = sunat17.Condicion
+
+                        };
+                        return padronsunat;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 case "20":
                     var sunat20 = await _padron20Service.GetPadron20(ruc);
                   
@@ -147,7 +239,7 @@ namespace ApiRestSunat.Domain.Services.PadronRuc
                             direccion += " INT." + sunat20.Interior;
                         }
                         padronsunat.Direccion = direccion;
-                        padronsunat.DireccionLarga = direccion + " - " + sunat20.UDepartamento + " " + sunat20.UProvincia + " " + sunat20.UDistrito;
+                        padronsunat.DireccionLarga = direccion + " - " + sunat20.UDepartamento + " - " + sunat20.UProvincia + " " + sunat20.UDistrito;
                         return padronsunat;
                     }
                     else

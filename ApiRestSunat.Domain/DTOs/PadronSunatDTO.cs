@@ -11,9 +11,9 @@ namespace ApiRestSunat.Domain.DTOs
     {
         public string Ruc { get; set; }
         public string RazonSocial { get; set; }
-        public string Estado { get; set; }       
+        public string Estado { get; set; }
         public string Condicion { get; set; }
-        public string Ubigeo { get; set; }   
+        public string Ubigeo { get; set; }
         public string TipoDeVia { get; set; }
         public string NombreDeVia { get; set; }
         public string CodigoDeZona { get; set; }
@@ -26,5 +26,12 @@ namespace ApiRestSunat.Domain.DTOs
         public string Kilometro { get; set; }
         public string Direccion { get; set; }
         public string DireccionLarga { get; set; }
+    }
+    public class PadronSunatReducidoDTO
+    {
+        public string Ruc { get; set; }
+        public string RazonSocial { get; set; }
+        public string Estado { get; set; }
+        public string Condicion { get; set; }
     }
 }
