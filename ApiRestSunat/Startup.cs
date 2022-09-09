@@ -2,9 +2,11 @@ using ApiRestSunat.Domain.Services;
 using ApiRestSunat.Domain.Services.PadronRuc;
 using ApiRestSunat.EntityFramework;
 using ApiRestSunat.EntityFramework.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,13 +38,19 @@ namespace ApiRestSunat
             services.AddSingleton<IPadron20Service, Padron20DataService>();
             services.AddSingleton<IPadronLogicaService, PadronLogicaService>();
             
+
             services.AddControllers();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiRestSunat", Version = "v1" });
             });
             
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddIdentity<IdentityUser,IdentityRole>()
+                .AddEntityFrameworkStores<ApiRestDbContext>()
+                .AddDefaultTokenProviders();
            
         }
 

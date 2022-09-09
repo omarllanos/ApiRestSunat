@@ -1,5 +1,6 @@
 ﻿
 using ApiRestSunat.Domain.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiRestSunat.EntityFramework
 {
-    public class ApiRestDbContext : DbContext
+    public class ApiRestDbContext : IdentityDbContext
     {
         public ApiRestDbContext(DbContextOptions options):base(options) 
         {
@@ -22,7 +23,7 @@ namespace ApiRestSunat.EntityFramework
         public virtual DbSet<Ubigeo> Ubigeo { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            base.OnModelCreating(modelBuilder);
         }
         
     }

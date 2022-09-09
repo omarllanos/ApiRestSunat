@@ -2,6 +2,8 @@
 using ApiRestSunat.Domain.Models;
 using ApiRestSunat.Domain.Services;
 using ApiRestSunat.Domain.Services.PadronRuc;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
 namespace ApiRestSunat.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class PadronSunatController : ControllerBase
     {
        
@@ -34,6 +36,7 @@ namespace ApiRestSunat.Controllers
             }
         }
         [HttpGet("persona/{dni}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<PadronSunatDniDTO>> GetPadronDni(string dni)
         {
             var padron = await _padronlogicaService.GetPadronDni(dni);
