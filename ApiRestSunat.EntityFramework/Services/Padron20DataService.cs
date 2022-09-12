@@ -12,11 +12,11 @@ namespace ApiRestSunat.EntityFramework.Services
 {
     public class Padron20DataService : IPadron20Service
     {
-        private readonly ApiRestDbContextFactory _contextFactory;
+        private readonly ApiRestDbContext _context;
 
-        public Padron20DataService(ApiRestDbContextFactory contextFactory)
+        public Padron20DataService(ApiRestDbContext context)
         {
-            _contextFactory = contextFactory;
+            _context = context;
         }
 
         public Task<Padron_sunat_20> Create(Padron_sunat_20 entity)
@@ -41,9 +41,9 @@ namespace ApiRestSunat.EntityFramework.Services
 
         public async Task<PadronSelectDTO> GetPadron20(string ruc)
         {
-            using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            var queryable = await (from r in context.Padron_sunat_20
-                             join ct in context.Ubigeo on r.Ubigeo equals ct.Ubigeo_inei
+            //using ApiRestDbContext context = _context;
+            var queryable = await (from r in _context.Padron_sunat_20
+                             join ct in _context.Ubigeo on r.Ubigeo equals ct.Ubigeo_inei
                              where r.Ruc == ruc
                              select new PadronSelectDTO()
                              {

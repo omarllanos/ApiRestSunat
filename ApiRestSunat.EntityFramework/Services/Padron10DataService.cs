@@ -1,8 +1,6 @@
 ﻿using ApiRestSunat.Domain.DTOs;
 using ApiRestSunat.Domain.Models;
 using ApiRestSunat.Domain.Services;
-using ApiRestSunat.EntityFramework.Common;
-
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,12 +12,12 @@ namespace ApiRestSunat.EntityFramework.Services
 {
     public class Padron10DataService : IPadron10Service
     {
-        private readonly ApiRestDbContextFactory _contextFactory;
-        private readonly NoQueryDataService<Padron_sunat_10> _nonQueryDataService;
-        public Padron10DataService(ApiRestDbContextFactory contextFactory)
+        private readonly ApiRestDbContext _context;
+      
+        public Padron10DataService(ApiRestDbContext context)
         {
-            _contextFactory = contextFactory;
-            _nonQueryDataService = new NoQueryDataService<Padron_sunat_10>(contextFactory);
+            _context = context;
+          
         }
 
         public Task<Padron_sunat_10> Create(Padron_sunat_10 entity)
@@ -44,29 +42,29 @@ namespace ApiRestSunat.EntityFramework.Services
 
         public async Task<Padron_sunat_10> GetPadron10(string ruc)
         {
-            using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            Padron_sunat_10 entity = await context.Set<Padron_sunat_10>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
+            //using ApiRestDbContext context = _contextFactory.CreateDbContext();
+            Padron_sunat_10 entity = await _context.Set<Padron_sunat_10>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
             return entity;
         }
 
         public async Task<Padron_sunat_15> GetPadron15(string ruc)
         {
-            using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            Padron_sunat_15 entity = await context.Set<Padron_sunat_15>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
+           // using ApiRestDbContext context = _contextFactory.CreateDbContext();
+            Padron_sunat_15 entity = await _context.Set<Padron_sunat_15>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
             return entity;
         }
 
         public async Task<Padron_sunat_17> GetPadron17(string ruc)
         {
-            using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            Padron_sunat_17 entity = await context.Set<Padron_sunat_17>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
+            //using ApiRestDbContext context = _contextFactory.CreateDbContext();
+            Padron_sunat_17 entity = await _context.Set<Padron_sunat_17>().AsNoTracking().FirstOrDefaultAsync((e) => e.Ruc == ruc);
             return entity;
         }
 
         public async Task<string> GetPadronDni(string Dni)
         {
-            using ApiRestDbContext context = _contextFactory.CreateDbContext();
-            var entity = await context.Set<Padron_sunat_dni>().Where(x => x.Dni.Equals(Dni)).Select(x => new { x.Dni, x.Nombres }).AsNoTracking().FirstOrDefaultAsync();
+            //using ApiRestDbContext context = _contextFactory.CreateDbContext();
+            var entity = await _context.Set<Padron_sunat_dni>().Where(x => x.Dni.Equals(Dni)).Select(x => new { x.Dni, x.Nombres }).AsNoTracking().FirstOrDefaultAsync();
             if (entity != null)
             {
                 return entity.Nombres;

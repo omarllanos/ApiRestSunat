@@ -12,8 +12,13 @@ namespace ApiRestSunat.EntityFramework
 {
     public class ApiRestDbContext : IdentityDbContext
     {
-        public ApiRestDbContext(DbContextOptions options):base(options) 
+        public ApiRestDbContext(DbContextOptions<ApiRestDbContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {    
+            base.OnModelCreating(modelBuilder);
         }
         public virtual DbSet<Padron_sunat_10> Padron_sunat_10 { get; set; }
         public virtual DbSet<Padron_sunat_20> Padron_sunat_20 { get; set; }
@@ -21,10 +26,7 @@ namespace ApiRestSunat.EntityFramework
         public virtual DbSet<Padron_sunat_17> Padron_sunat_17 { get; set; }
         public virtual DbSet<Padron_sunat_dni> Padron_sunat_dni { get; set; }
         public virtual DbSet<Ubigeo> Ubigeo { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
+       
         
     }
 }
