@@ -39,7 +39,7 @@ namespace ApiRestSunat.Controllers
             }
         }
         [HttpGet("persona/{dni}")]      
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "EsAdmin")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<PadronSunatDniDTO>> GetPadronDni(string dni)
         {
             //var emailClaim = HttpContext.User.Claims.Where(claim => claim.Type == "email").FirstOrDefault(); //solo funca si hay autorize

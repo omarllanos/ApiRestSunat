@@ -89,10 +89,10 @@ namespace ApiRestSunat
             services.AddIdentity<IdentityUser,IdentityRole>()
                 .AddEntityFrameworkStores<ApiRestDbContext>()
                 .AddDefaultTokenProviders();
-            services.AddAuthorization(opciones =>
-            {
-                opciones.AddPolicy("EsAdmin", politica => politica.RequireClaim("esAdmin"));
-            });
+            //services.AddAuthorization(opciones =>
+            //{
+            //    opciones.AddPolicy("EsAdmin", politica => politica.RequireClaim("esAdmin"));
+            //});
 
         }
 
